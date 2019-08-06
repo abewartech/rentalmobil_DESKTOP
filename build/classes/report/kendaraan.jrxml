@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b5dfeb7e-57f6-4bc0-8b62-516f26f7660a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     kendaraan.`noPlat` AS kendaraan_noPlat,
+     kendaraan.`namaKendaraan` AS kendaraan_namaKendaraan,
+     kendaraan.`tahun` AS kendaraan_tahun,
+     kendaraan.`tarif` AS kendaraan_tarif,
+     kendaraan.`statusRental` AS kendaraan_statusRental,
+     kendaraan.`merekKendaraan` AS kendaraan_merekKendaraan,
+     kendaraan.`tipeKendaraan` AS kendaraan_tipeKendaraan,
+     kendaraan.`namaPemilik` AS kendaraan_namaPemilik,
+     merekKendaraan.`idMerek` AS merekKendaraan_idMerek,
+     merekKendaraan.`nama` AS merekKendaraan_nama,
+     merekKendaraan.`keterangan` AS merekKendaraan_keterangan,
+     tipeKendaraan.`idTipe` AS tipeKendaraan_idTipe,
+     tipeKendaraan.`nama` AS tipeKendaraan_nama,
+     tipeKendaraan.`keterangan` AS tipeKendaraan_keterangan,
+     pemilik.`noKtp` AS pemilik_noKtp,
+     pemilik.`nama` AS pemilik_nama,
+     pemilik.`alamat` AS pemilik_alamat,
+     pemilik.`noTelp` AS pemilik_noTelp
+FROM
+     `merekKendaraan` merekKendaraan INNER JOIN `kendaraan` kendaraan ON merekKendaraan.`nama` = kendaraan.`merekKendaraan`
+     INNER JOIN `tipeKendaraan` tipeKendaraan ON kendaraan.`tipeKendaraan` = tipeKendaraan.`nama`
+     INNER JOIN `pemilik` pemilik ON kendaraan.`namaPemilik` = pemilik.`nama`]]>
+	</queryString>
+	<field name="kendaraan_noPlat" class="java.lang.String"/>
+	<field name="kendaraan_namaKendaraan" class="java.lang.String"/>
+	<field name="kendaraan_tahun" class="java.lang.Integer"/>
+	<field name="kendaraan_tarif" class="java.lang.Integer"/>
+	<field name="kendaraan_statusRental" class="java.lang.String"/>
+	<field name="kendaraan_merekKendaraan" class="java.lang.String"/>
+	<field name="kendaraan_tipeKendaraan" class="java.lang.String"/>
+	<field name="kendaraan_namaPemilik" class="java.lang.String"/>
+	<field name="merekKendaraan_idMerek" class="java.lang.Integer"/>
+	<field name="merekKendaraan_nama" class="java.lang.String"/>
+	<field name="merekKendaraan_keterangan" class="java.lang.String"/>
+	<field name="tipeKendaraan_idTipe" class="java.lang.Integer"/>
+	<field name="tipeKendaraan_nama" class="java.lang.String"/>
+	<field name="tipeKendaraan_keterangan" class="java.lang.String"/>
+	<field name="pemilik_noKtp" class="java.lang.Long"/>
+	<field name="pemilik_nama" class="java.lang.String"/>
+	<field name="pemilik_alamat" class="java.lang.String"/>
+	<field name="pemilik_noTelp" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="187" y="19" width="200" height="45" uuid="6e841430-4cd2-4299-99db-db76805533ec"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[Kendaraan]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="86" splitType="Stretch">
+			<line>
+				<reportElement x="22" y="15" width="511" height="1" uuid="753736a6-0795-4e25-9c31-2b269d28b813"/>
+			</line>
+			<line>
+				<reportElement x="22" y="69" width="511" height="1" uuid="65030098-a54b-4330-bd73-294004d83d8d"/>
+			</line>
+			<staticText>
+				<reportElement x="22" y="33" width="33" height="20" uuid="a4316756-b626-44c1-aac0-f3a844f64e1d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="33" width="51" height="20" uuid="121057af-13f9-4fa9-9b10-72f385618dcd"/>
+				<text><![CDATA[No Plat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="33" width="92" height="20" uuid="15d8c4e6-9578-43f6-bfdf-4edd1cfa14e6"/>
+				<text><![CDATA[Nama Kendaraan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="242" y="33" width="41" height="20" uuid="34437616-576d-4336-b917-f826cdb5eda9"/>
+				<text><![CDATA[Tahun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="33" width="41" height="20" uuid="1daff530-78a6-4df7-8244-de136b226c3e"/>
+				<text><![CDATA[Tarif]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="346" y="33" width="41" height="20" uuid="e429e20c-cd97-4a7d-8ac7-a86ffc6297a1"/>
+				<text><![CDATA[Merk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="401" y="33" width="41" height="20" uuid="a7fde6d9-033c-474c-ba22-1f70cec561e0"/>
+				<text><![CDATA[Tipe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="457" y="33" width="41" height="20" uuid="45420133-935d-46df-a7e1-bf08a6ab282e"/>
+				<text><![CDATA[Pemilik]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="84" splitType="Stretch">
+			<line>
+				<reportElement x="22" y="60" width="511" height="1" uuid="6246a889-a5ff-4e3e-8e2e-b7b1d6bbed1d"/>
+			</line>
+			<textField>
+				<reportElement x="72" y="21" width="51" height="20" uuid="20a4400d-9305-4211-83d2-1f31fb2ebad9"/>
+				<textFieldExpression><![CDATA[$F{kendaraan_noPlat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="21" width="92" height="20" uuid="244885fd-c835-46f5-b09e-cb472d650c5f"/>
+				<textFieldExpression><![CDATA[$F{kendaraan_namaKendaraan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="21" width="41" height="20" uuid="e56011eb-55ef-4b46-9a9b-3236cfa18428"/>
+				<textFieldExpression><![CDATA[$F{kendaraan_tahun}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="21" width="41" height="20" uuid="e8e0a3f3-d968-4dda-ac1b-e0237fcf66a4"/>
+				<textFieldExpression><![CDATA[$F{kendaraan_tarif}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="346" y="21" width="41" height="20" uuid="e9166327-41f5-4d7b-85b5-5bd08a67bfc5"/>
+				<textFieldExpression><![CDATA[$F{kendaraan_merekKendaraan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="21" width="41" height="20" uuid="053c77e5-6a6d-4ff5-8c62-8011b6eefd7d"/>
+				<textFieldExpression><![CDATA[$F{kendaraan_tipeKendaraan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="21" width="71" height="20" uuid="d1ee0426-0d7c-4497-8f8b-eda5c28938a6"/>
+				<textFieldExpression><![CDATA[$F{kendaraan_namaPemilik}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="22" width="28" height="20" uuid="01c9efbf-18fe-4a96-9361-fa145718c975"/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f65ce2b9-3472-450a-a89a-20a2100a052b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     pelanggan.`noKtp` AS pelanggan_noKtp,
+     pelanggan.`nama` AS pelanggan_nama,
+     pelanggan.`alamat` AS pelanggan_alamat,
+     pelanggan.`noTelp` AS pelanggan_noTelp
+FROM
+     `pelanggan` pelanggan]]>
+	</queryString>
+	<field name="pelanggan_noKtp" class="java.lang.Long"/>
+	<field name="pelanggan_nama" class="java.lang.String"/>
+	<field name="pelanggan_alamat" class="java.lang.String"/>
+	<field name="pelanggan_noTelp" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="176" y="16" width="200" height="45" uuid="94fdaa44-df2b-49ec-b12e-91fd1de848f3"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[Pelanggan]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="73" splitType="Stretch">
+			<line>
+				<reportElement x="23" y="15" width="511" height="1" uuid="d2dd710c-3cc6-415d-920e-0480faf62694"/>
+			</line>
+			<line>
+				<reportElement x="23" y="59" width="511" height="1" uuid="12c6400c-ed83-4cdd-9705-5e0f55c472e5"/>
+			</line>
+			<staticText>
+				<reportElement x="23" y="28" width="33" height="20" uuid="55e6a7af-9d66-4c1d-bac1-18cb2b059e2f"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="28" width="100" height="20" uuid="15bbf837-4a1c-481a-990e-a3a0bf71f989"/>
+				<text><![CDATA[No KTP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="28" width="59" height="20" uuid="ff25b366-a9f2-4f58-8dc7-7f5bc2e9b26f"/>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="28" width="100" height="20" uuid="a72947ae-f1d3-416b-8ab2-d59136c7657a"/>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="28" width="100" height="20" uuid="a31f45f6-e58f-4211-8b71-e9a3363dd05c"/>
+				<text><![CDATA[No Telepon]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="64" splitType="Stretch">
+			<line>
+				<reportElement x="23" y="50" width="511" height="1" uuid="285e2716-82e6-4779-bcab-bc880f339806"/>
+			</line>
+			<textField>
+				<reportElement x="76" y="13" width="100" height="20" uuid="033908a4-84f4-4c25-9f86-b9d3d11d8e2f"/>
+				<textFieldExpression><![CDATA[$F{pelanggan_noKtp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="13" width="33" height="20" uuid="94cea200-3d44-44f3-bc93-556bf562ff08"/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="13" width="59" height="20" uuid="72923723-bd9b-49cd-b274-6387c231fe17"/>
+				<textFieldExpression><![CDATA[$F{pelanggan_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="288" y="13" width="100" height="20" uuid="b4e59bb7-65fe-494a-892f-d4342acb45fd"/>
+				<textFieldExpression><![CDATA[$F{pelanggan_alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="13" width="100" height="20" uuid="4efb5bc7-4de0-432c-8640-65fc9d0eae3b"/>
+				<textFieldExpression><![CDATA[$F{pelanggan_noTelp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

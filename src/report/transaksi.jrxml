@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="transaksi" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="78e62654-9106-47ab-8632-e7ca7fd1f5c3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idTransaksi" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     detailTransaksi.`idTransaksi` AS detailTransaksi_idTransaksi,
+     detailTransaksi.`tglPinjam` AS detailTransaksi_tglPinjam,
+     detailTransaksi.`tglKembali` AS detailTransaksi_tglKembali,
+     detailTransaksi.`platNomor` AS detailTransaksi_platNomor,
+     detailTransaksi.`namaSopir` AS detailTransaksi_namaSopir,
+     detailTransaksi.`hargaSewa` AS detailTransaksi_hargaSewa,
+     transaksi.`idTransaksi` AS transaksi_idTransaksi,
+     transaksi.`tglPesan` AS transaksi_tglPesan,
+     transaksi.`noKtpPelanggan` AS transaksi_noKtpPelanggan,
+     tipeKendaraan.`idTipe` AS tipeKendaraan_idTipe,
+     tipeKendaraan.`nama` AS tipeKendaraan_nama,
+     tipeKendaraan.`keterangan` AS tipeKendaraan_keterangan,
+     sopir.`noSim` AS sopir_noSim,
+     sopir.`nama` AS sopir_nama,
+     sopir.`alamat` AS sopir_alamat,
+     sopir.`noTelp` AS sopir_noTelp,
+     sopir.`tarif` AS sopir_tarif,
+     sopir.`statusRental` AS sopir_statusRental,
+     pemilik.`noKtp` AS pemilik_noKtp,
+     pemilik.`nama` AS pemilik_nama,
+     pemilik.`alamat` AS pemilik_alamat,
+     pemilik.`noTelp` AS pemilik_noTelp,
+     pelanggan.`noKtp` AS pelanggan_noKtp,
+     pelanggan.`nama` AS pelanggan_nama,
+     pelanggan.`alamat` AS pelanggan_alamat,
+     pelanggan.`noTelp` AS pelanggan_noTelp,
+     merekKendaraan.`idMerek` AS merekKendaraan_idMerek,
+     merekKendaraan.`nama` AS merekKendaraan_nama,
+     merekKendaraan.`keterangan` AS merekKendaraan_keterangan,
+     kendaraan.`noPlat` AS kendaraan_noPlat,
+     kendaraan.`namaKendaraan` AS kendaraan_namaKendaraan,
+     kendaraan.`tahun` AS kendaraan_tahun,
+     kendaraan.`tarif` AS kendaraan_tarif,
+     kendaraan.`statusRental` AS kendaraan_statusRental,
+     kendaraan.`merekKendaraan` AS kendaraan_merekKendaraan,
+     kendaraan.`tipeKendaraan` AS kendaraan_tipeKendaraan,
+     kendaraan.`namaPemilik` AS kendaraan_namaPemilik
+FROM
+     `transaksi` transaksi INNER JOIN `detailTransaksi` detailTransaksi ON transaksi.`idTransaksi` = detailTransaksi.`idTransaksi`
+     INNER JOIN `kendaraan` kendaraan ON detailTransaksi.`platNomor` = kendaraan.`noPlat`
+     INNER JOIN `sopir` sopir ON detailTransaksi.`namaSopir` = sopir.`nama`
+     INNER JOIN `pemilik` pemilik ON kendaraan.`namaPemilik` = pemilik.`nama`
+     INNER JOIN `merekKendaraan` merekKendaraan ON kendaraan.`merekKendaraan` = merekKendaraan.`nama`
+     INNER JOIN `tipeKendaraan` tipeKendaraan ON kendaraan.`tipeKendaraan` = tipeKendaraan.`nama`
+     INNER JOIN `pelanggan` pelanggan ON transaksi.`noKtpPelanggan` = pelanggan.`noKtp`
+WHERE
+transaksi.idTransaksi=$P{idTransaksi}]]>
+	</queryString>
+	<field name="detailTransaksi_idTransaksi" class="java.lang.String"/>
+	<field name="detailTransaksi_tglPinjam" class="java.lang.String"/>
+	<field name="detailTransaksi_tglKembali" class="java.lang.String"/>
+	<field name="detailTransaksi_platNomor" class="java.lang.String"/>
+	<field name="detailTransaksi_namaSopir" class="java.lang.String"/>
+	<field name="detailTransaksi_hargaSewa" class="java.lang.Integer"/>
+	<field name="transaksi_idTransaksi" class="java.lang.String"/>
+	<field name="transaksi_tglPesan" class="java.lang.String"/>
+	<field name="transaksi_noKtpPelanggan" class="java.lang.Long"/>
+	<field name="tipeKendaraan_idTipe" class="java.lang.Integer"/>
+	<field name="tipeKendaraan_nama" class="java.lang.String"/>
+	<field name="tipeKendaraan_keterangan" class="java.lang.String"/>
+	<field name="sopir_noSim" class="java.lang.Long"/>
+	<field name="sopir_nama" class="java.lang.String"/>
+	<field name="sopir_alamat" class="java.lang.String"/>
+	<field name="sopir_noTelp" class="java.lang.String"/>
+	<field name="sopir_tarif" class="java.lang.Integer"/>
+	<field name="sopir_statusRental" class="java.lang.String"/>
+	<field name="pemilik_noKtp" class="java.lang.Long"/>
+	<field name="pemilik_nama" class="java.lang.String"/>
+	<field name="pemilik_alamat" class="java.lang.String"/>
+	<field name="pemilik_noTelp" class="java.lang.String"/>
+	<field name="pelanggan_noKtp" class="java.lang.Long"/>
+	<field name="pelanggan_nama" class="java.lang.String"/>
+	<field name="pelanggan_alamat" class="java.lang.String"/>
+	<field name="pelanggan_noTelp" class="java.lang.String"/>
+	<field name="merekKendaraan_idMerek" class="java.lang.Integer"/>
+	<field name="merekKendaraan_nama" class="java.lang.String"/>
+	<field name="merekKendaraan_keterangan" class="java.lang.String"/>
+	<field name="kendaraan_noPlat" class="java.lang.String"/>
+	<field name="kendaraan_namaKendaraan" class="java.lang.String"/>
+	<field name="kendaraan_tahun" class="java.lang.Integer"/>
+	<field name="kendaraan_tarif" class="java.lang.Integer"/>
+	<field name="kendaraan_statusRental" class="java.lang.String"/>
+	<field name="kendaraan_merekKendaraan" class="java.lang.String"/>
+	<field name="kendaraan_tipeKendaraan" class="java.lang.String"/>
+	<field name="kendaraan_namaPemilik" class="java.lang.String"/>
+	<variable name="jumlahTransaksi" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{detailTransaksi_hargaSewa}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="191" y="18" width="175" height="45" uuid="9c6733a4-9b4f-490b-824a-273c921a6d87"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[Transaksi]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="14" width="70" height="20" uuid="ba584f8d-5408-4b7c-ac3c-1ddda17d7f90"/>
+				<text><![CDATA[Id Transaksi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="58" width="100" height="20" uuid="947103f0-b508-462b-887b-fa1956cc17ac"/>
+				<text><![CDATA[Nama Pelanggan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="14" width="55" height="20" uuid="cb242e6b-9187-4ec3-bea4-b58ed3f81875"/>
+				<text><![CDATA[Tgl Pesan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="58" width="65" height="20" uuid="17b6bda2-7ad5-4a86-8f9c-f1ad1145c29f"/>
+				<text><![CDATA[Nama Sopir]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="134" y="14" width="100" height="20" uuid="6842061f-4bab-48d5-970a-d47b49a4d4a8"/>
+				<textFieldExpression><![CDATA[$F{transaksi_idTransaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="58" width="100" height="20" uuid="f264c06c-d5f9-44a1-b66a-2b799fec86c6"/>
+				<textFieldExpression><![CDATA[$F{pelanggan_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="14" width="100" height="20" uuid="d8aefb9f-1451-42d0-a6a3-30b4cc7b0db9"/>
+				<textFieldExpression><![CDATA[$F{transaksi_tglPesan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="58" width="100" height="20" uuid="ba546634-0dff-4814-9454-9d77d518d45c"/>
+				<textFieldExpression><![CDATA[$F{detailTransaksi_namaSopir}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="69" splitType="Stretch">
+			<line>
+				<reportElement x="20" y="16" width="511" height="1" uuid="dd6f1163-2a59-40a1-b8eb-15be9ce2eaa2"/>
+			</line>
+			<line>
+				<reportElement x="20" y="55" width="511" height="1" uuid="105d480a-48c0-4f78-9266-2950ac6a432f"/>
+			</line>
+			<staticText>
+				<reportElement x="11" y="26" width="33" height="20" uuid="9682c58e-e33e-4469-8e85-819ff0ff4cbc"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="26" width="51" height="20" uuid="55060753-4189-42bb-8663-af48d32cdcc2"/>
+				<text><![CDATA[No Plat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="132" y="26" width="100" height="20" uuid="d9d2e597-b2c2-4228-9461-fe5d416a856e"/>
+				<text><![CDATA[Nama Kendaraan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="26" width="46" height="20" uuid="8d0cdb31-3a53-43a9-af56-c60742fa2a38"/>
+				<text><![CDATA[Tarif]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="26" width="65" height="20" uuid="bf62de33-d26f-4a42-9104-462b76cf2a16"/>
+				<text><![CDATA[Tgl Pinjam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="26" width="64" height="20" uuid="7628de2f-9106-483f-9b72-9ae88c0ffb6b"/>
+				<text><![CDATA[Tgl Kembali]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="26" width="56" height="20" uuid="e20c05cf-3a7f-44d2-97bc-59ce9f576ec6"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="85" splitType="Stretch">
+			<line>
+				<reportElement x="20" y="62" width="511" height="1" uuid="6f6bc744-c64c-4e97-85be-9c80de489074"/>
+			</line>
+			<textField>
+				<reportElement x="62" y="24" width="51" height="20" uuid="3d4075e4-03fd-4da5-a91b-9457f287dfb8"/>
+				<textFieldExpression><![CDATA[$F{detailTransaksi_platNomor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="132" y="24" width="100" height="20" uuid="d55c63a5-fc7f-4e2c-ae00-af090c33db3c"/>
+				<textFieldExpression><![CDATA[$F{kendaraan_namaKendaraan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="24" width="46" height="20" uuid="44e4bb72-09cc-4e82-bdc9-6bba833646da"/>
+				<textFieldExpression><![CDATA[$F{kendaraan_tarif}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="24" width="65" height="20" uuid="72409ce1-6db8-4b6b-b396-a4ec5bb5f8c3"/>
+				<textFieldExpression><![CDATA[$F{detailTransaksi_tglPinjam}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="24" width="64" height="20" uuid="d043269b-384f-42d7-a4b9-4eff2f11e69c"/>
+				<textFieldExpression><![CDATA[$F{detailTransaksi_tglKembali}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="475" y="24" width="56" height="20" uuid="4652974a-80e1-4571-8b9f-5b898436506f"/>
+				<textFieldExpression><![CDATA[$F{detailTransaksi_hargaSewa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="24" width="35" height="20" uuid="448c3194-67e1-484f-9016-998958421d8d"/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="314" y="12" width="95" height="20" uuid="8c47b0c3-177d-4e2e-8f10-87b959ddbd60"/>
+				<text><![CDATA[Total Transaksi]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="431" y="12" width="100" height="20" uuid="07d56ecf-5d4b-45b8-9ea5-6fed713ab2b2"/>
+				<textFieldExpression><![CDATA[$V{jumlahTransaksi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
